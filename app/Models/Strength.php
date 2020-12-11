@@ -2,17 +2,9 @@
 
 namespace App\Models;
 
-class Strength extends AbstractModel
+use Illuminate\Database\Eloquent\Model;
+
+class Strength extends Model implements StrengthInterface
 {
-    protected string $title;
-
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    public function setTitle($title): void
-    {
-        $this->title = $title;
-    }
+    protected $guarded = [];
 }

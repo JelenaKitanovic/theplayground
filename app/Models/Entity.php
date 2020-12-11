@@ -1,10 +1,8 @@
 <?php
 
-
 namespace App\Models;
 
-
-class AbstractModel
+class Entity
 {
     protected int $id;
     protected \DateTime $createdAt;

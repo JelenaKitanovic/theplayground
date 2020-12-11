@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Strength;
+use App\Repository\UserRepositoryInterface;
 
 class UserController extends Controller
 {
-    public function index(){}
+    private $userRepositoryInterface;
 
-    public function view(int $id) {
+    public function __construct(UserRepositoryInterface $userRepositoryInterface)
+    {
+        $this->userRepositoryInterface = $userRepositoryInterface;
+    }
 
-        $strengths = Strength::all();
-        var_dump($strengths);
+    public function index()
+    {
+    }
+
+    public function view(int $id)
+    {
+        var_dump($this->userRepositoryInterface->getById($id));
         die;
-
-        return view("users\details", ["id" => $id]);
+        return view("users.details", ["id" => $id]);
     }
 }

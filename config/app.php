@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\RepositoriesServiceProvider;
+
 return [
 
     /*
@@ -173,6 +175,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        RepositoriesServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
     ],

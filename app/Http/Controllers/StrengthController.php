@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Strength;
+use App\Repository\StrengthRepositoryInterface;
+use App\Service\StrengthService;
 
 class StrengthController extends Controller
 {
-    public function index(){
-        $strengths = Strength::all();
-        return view("strengths\index", ["strengths" => $strengths]);
+    private StrengthRepositoryInterface $strengthRepository;
+    private StrengthService $strengthService;
+
+    public function __construct(StrengthRepositoryInterface $strengthRepository, StrengthService $strengthService)
+    {
+        $this->strengthRepository = $strengthRepository;
+        $this->strengthService = $strengthService;
+    }
+
+    public function index()
+    {
+        var_dump($this->strengthService->addStrength("kindness"));
     }
 }
