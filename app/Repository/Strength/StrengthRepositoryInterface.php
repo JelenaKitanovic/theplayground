@@ -2,8 +2,9 @@
 
 namespace App\Repository;
 
-use App\Models\Strength;
+use App\Models\UserInterface;
 
 interface StrengthRepositoryInterface extends RepositoryInterface
 {
+    public function getByUser(UserInterface $user);
 }

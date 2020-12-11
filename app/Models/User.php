@@ -8,8 +8,13 @@ class User extends Model implements UserInterface
 {
     protected $guarded = [];
 
-    public function userStrength()
+    public function userStrengths()
     {
-        return $this->hasOne(UserStrength::class);
+        return $this->hasMany(UserStrength::class);
+    }
+
+    public function strengths()
+    {
+        return $this->belongsToMany(Strength::class, "user_strength");
     }
 }
