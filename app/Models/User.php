@@ -2,20 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as AuthenticateUser;
 
-class User extends Model implements UserInterface
+class User extends AuthenticateUser implements UserInterface
 {
     protected $guarded = [];
-
-    public function userStrengths()
-    {
-        return $this->hasMany(UserStrength::class);
-    }
-
-    public function strengths()
-    {
-        return $this->belongsToMany(Strength::class, "user_strength");
-    }
-
 }
