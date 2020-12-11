@@ -4,13 +4,13 @@ namespace App\Providers;
 
 use App\Repository\EloquentStrengthRepository;
 use App\Repository\EloquentUserRepository;
-use App\Repository\EloquentUserStrengthRepository;
+use App\Repository\EloquentCustomerStrengthRepository;
 use App\Repository\StrengthRepositoryInterface;
-use App\Repository\UserRepositoryInterface;
-use App\Repository\UserStrengthRepositoryInterface;
+use App\Repository\CustomerRepositoryInterface;
+use App\Repository\CustomerStrengthRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
-class RepositoriesServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -29,8 +29,8 @@ class RepositoriesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(UserRepositoryInterface::class, EloquentUserRepository::class);
+        $this->app->bind(CustomerRepositoryInterface::class, EloquentUserRepository::class);
         $this->app->bind(StrengthRepositoryInterface::class, EloquentStrengthRepository::class);
-        $this->app->bind(UserStrengthRepositoryInterface::class, EloquentUserStrengthRepository::class);
+        $this->app->bind(CustomerStrengthRepositoryInterface::class, EloquentCustomerStrengthRepository::class);
     }
 }

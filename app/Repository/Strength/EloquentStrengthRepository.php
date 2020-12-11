@@ -19,12 +19,6 @@ class EloquentStrengthRepository implements StrengthRepositoryInterface
         return Strength::all();
     }
 
-    public function getByUser(UserInterface $user): Collection
-    {
-        //$user->strengths -> Collection
-        return User::find($user->id)->strengths()->get();
-    }
-
     public function save($strength): void
     {
         $strength->save();

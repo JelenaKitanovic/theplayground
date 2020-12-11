@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserStrength extends Model
+class CustomerStrength extends Model implements CustomerStrengthInterface
 {
     protected $guarded = [];
 
-    public function user()
+    public function customer()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Customer::class);
     }
 
     public function strength()
     {
         return $this->belongsTo(Strength::class);
-    }
-}
+    }}

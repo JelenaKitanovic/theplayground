@@ -4,7 +4,7 @@
 namespace App\Models;
 
 
-interface UserStrengthInterface
+interface CustomerStrengthInterface
 {
 
 }

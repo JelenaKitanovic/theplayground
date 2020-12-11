@@ -8,13 +8,13 @@ class Strength extends Model implements StrengthInterface
 {
     protected $guarded = [];
 
-    public function userStrengths()
+    public function customerStrengths()
     {
-        return $this->hasMany(UserStrength::class);
+        return $this->hasMany(CustomerStrength::class);
     }
 
-    public function users()
+    public function customers()
     {
-        return $this->belongsToMany(User::class, "user_strength");
+        return $this->belongsToMany(Customer::class);
     }
 }

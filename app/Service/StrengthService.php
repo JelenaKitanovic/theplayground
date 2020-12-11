@@ -2,50 +2,33 @@
 
 namespace App\Service;
 
-use App\Factory\StrengthFactory;
+use App\Factory\StrengthFactoryInterface;
 use App\Models\Strength;
-use App\Models\User;
-use App\Models\UserStrength;
 use App\Repository\StrengthRepositoryInterface;
-use App\Repository\UserStrengthRepositoryInterface;
+use App\Repository\CustomerStrengthRepositoryInterface;
 
 class StrengthService
 {
-    protected StrengthRepositoryInterface $strengthRepositoryInterface;
-    protected UserStrengthRepositoryInterface $userStrengthRepositoryInterface;
-    protected StrengthFactory $strengthFactory;
+    protected StrengthRepositoryInterface $strengthRepository;
+    protected CustomerStrengthRepositoryInterface $customerStrengthRepository;
+    protected StrengthFactoryInterface $strengthFactory;
 
     public function __construct(
-        StrengthRepositoryInterface $strengthRepositoryInterface,
-        UserStrengthRepositoryInterface $userStrengthRepositoryInterface,
-        StrengthFactory $strengthFactory
+        StrengthRepositoryInterface $strengthRepository,
+        CustomerStrengthRepositoryInterface $customerStrengthRepository,
+        StrengthFactoryInterface $strengthFactory
     )
     {
-        $this->strengthRepositoryInterface = $strengthRepositoryInterface;
-        $this->userStrengthRepositoryInterface = $userStrengthRepositoryInterface;
+        $this->strengthRepository = $strengthRepository;
+        $this->customerStrengthRepository = $customerStrengthRepository;
         $this->strengthFactory = $strengthFactory;
     }
 
-    public function addStrength(string $title): void
+    public function addStrength(string $title): Strength
     {
         $strength = $this->strengthFactory->create($title);
-        $this->strengthRepositoryInterface->save($strength);
-    }
+        $this->strengthRepository->save($strength);
 
-    /**
-     * @param User $user
-     * @return Strength[]
-     */
-    public function getByUser(User $user): array
-    {
-        $strengths = [];
-
-        /** @var UserStrength[] $userStrengths */
-        $userStrengths = $this->userStrengthRepositoryInterface->getByUser($user);
-        foreach ($userStrengths as $userStrength) {
-            $strengths[] = $this->strengthRepositoryInterface->getById($userStrength->getStrengthId());
-        }
-
-        return $strengths;
+        return $strength;
     }
 }

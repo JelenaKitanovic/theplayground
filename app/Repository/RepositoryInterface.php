@@ -8,7 +8,7 @@ interface RepositoryInterface
 
     public function getAll();
 
-    public function save($entity);
+    public function save($entity): void;
 
-    public function delete($entity);
+    public function delete($entity): void;
 }

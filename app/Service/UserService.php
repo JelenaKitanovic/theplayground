@@ -2,46 +2,31 @@
 
 namespace App\Service;
 
-use App\Factory\UserFactory;
-use App\Repository\UserRepositoryInterface;
+use App\Factory\UserFactoryInterface;
+use App\Models\User;
+use App\Repository\CustomerRepositoryInterface;
 
 class UserService
 {
-    protected UserRepositoryInterface $userRepositoryInterface;
-    protected UserFactory $userFactory;
+    protected CustomerRepositoryInterface $userRepository;
+    protected UserFactoryInterface $userFactory;
 
     public function __construct(
-        UserRepositoryInterface $userRepositoryInterface,
-        UserFactory $UserFactory
+        CustomerRepositoryInterface $userRepositoryInterface,
+        UserFactoryInterface $UserFactory
     ){
-        $this->userRepositoryInterface = $userRepositoryInterface;
+        $this->userRepository = $userRepositoryInterface;
         $this->userFactory = $UserFactory;
     }
 
     public function addUser(
         string $name,
         string $email,
-        string $goal,
-        int $age,
-        string $idealPartner,
-        string $favouriteQuote,
-        string $favouriteGame,
-        string $availability,
-        array $strengths
-    ){
-        $user = $this->userFactory->create(
-            $name,
-            $email,
-            $goal,
-            $age,
-            $idealPartner,
-            $favouriteQuote,
-            $favouriteGame,
-            $availability,
-            $strengths
-        );
+        string $password
+    ): User {
+        $user = $this->userFactory->create($name, $email, $password);
+        $this->userRepository->save($user);
 
-        $this->userRepositoryInterface->save($user);
+        return $user;
     }
-
 }

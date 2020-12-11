@@ -2,9 +2,9 @@
 
 namespace App\Repository;
 
-use App\Models\UserInterface;
+use App\Models\StrengthInterface;
 
 interface StrengthRepositoryInterface extends RepositoryInterface
 {
-    public function getByUser(UserInterface $user);
+    public function getById(int $id): StrengthInterface;
 }

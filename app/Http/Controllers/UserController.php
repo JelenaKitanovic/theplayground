@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Repository\UserRepositoryInterface;
+use App\Repository\CustomerRepositoryInterface;
 
 class UserController extends Controller
 {
     private $userRepositoryInterface;
 
-    public function __construct(UserRepositoryInterface $userRepositoryInterface)
+    public function __construct(CustomerRepositoryInterface $userRepositoryInterface)
     {
         $this->userRepositoryInterface = $userRepositoryInterface;
     }

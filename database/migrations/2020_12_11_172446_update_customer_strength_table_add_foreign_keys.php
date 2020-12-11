@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserStrengthTable extends Migration
+class UpdateCustomerStrengthTableAddForeignKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateUserStrengthTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_strength', function (Blueprint $table) {
-            $table->id();
-            $table->bigIncrements("user_id");
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->bigIncrements("strength_id");
+        Schema::table('customer_strength', function (Blueprint $table) {
+            $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreign('strength_id')->references('id')->on('strengths');
-            $table->timestamps();
         });
     }
 
@@ -30,10 +26,6 @@ class CreateUserStrengthTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_strength');
+        //
     }
-
-
-
-
 }

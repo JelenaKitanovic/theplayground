@@ -17,4 +17,5 @@ class User extends Model implements UserInterface
     {
         return $this->belongsToMany(Strength::class, "user_strength");
     }
+
 }
