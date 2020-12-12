@@ -15,5 +15,5 @@ class Customer extends Model implements CustomerInterface
 
     public function strengths()
     {
-        return $this->belongsToMany(Strength::class);
+        return $this->belongsToMany(Strength::class, "customer_strength");
     }}

@@ -15,6 +15,6 @@ class Strength extends Model implements StrengthInterface
 
     public function customers()
     {
-        return $this->belongsToMany(Customer::class);
+        return $this->belongsToMany(Customer::class, "customer_strength");
     }
 }

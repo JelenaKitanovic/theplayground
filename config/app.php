@@ -1,6 +1,11 @@
 <?php
 
+use App\Providers\AppServiceProvider;
+use App\Providers\AuthServiceProvider;
+use App\Providers\FactoryServiceProvider;
 use App\Providers\RepositoryServiceProvider;
+use App\Providers\RouteServiceProvider;
+use App\Providers\ServiceServiceProvider;
 
 return [
 
@@ -171,12 +176,14 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
+        AppServiceProvider::class,
+        AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        FactoryServiceProvider::class,
         RepositoryServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        RouteServiceProvider::class,
+        ServiceServiceProvider::class
 
     ],
 

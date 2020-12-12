@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 
-interface CustomerStrengthRepositoryInterface
+interface CustomerStrengthRepositoryInterface extends RepositoryInterface
 {
+
 }

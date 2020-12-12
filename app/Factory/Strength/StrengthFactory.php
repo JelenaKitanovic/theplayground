@@ -4,7 +4,7 @@ namespace App\Factory;
 
 use App\Models\Strength;
 
-class StrengthFactory
+class StrengthFactory implements StrengthFactoryInterface
 {
     public function create(string $title): Strength
     {

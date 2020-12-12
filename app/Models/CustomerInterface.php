@@ -6,6 +6,7 @@ namespace App\Models;
 
 interface CustomerInterface
 {
+    public const ATTRIBUTE_ID = "id";
     public const ATTRIBUTE_FULL_NAME = "full_name";
     public const ATTRIBUTE_EMAIL = "email";
     public const ATTRIBUTE_GOAL = "goal";

@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class CustomerStrength extends Model implements CustomerStrengthInterface
+class CustomerStrength extends Pivot implements CustomerStrengthInterface
 {
     protected $guarded = [];
 

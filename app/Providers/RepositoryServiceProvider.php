@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repository\EloquentCustomerRepository;
 use App\Repository\EloquentStrengthRepository;
 use App\Repository\EloquentUserRepository;
 use App\Repository\EloquentCustomerStrengthRepository;
@@ -29,7 +30,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(CustomerRepositoryInterface::class, EloquentUserRepository::class);
+        $this->app->bind(CustomerRepositoryInterface::class, EloquentCustomerRepository::class);
         $this->app->bind(StrengthRepositoryInterface::class, EloquentStrengthRepository::class);
         $this->app->bind(CustomerStrengthRepositoryInterface::class, EloquentCustomerStrengthRepository::class);
     }

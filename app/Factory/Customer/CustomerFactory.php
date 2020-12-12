@@ -13,9 +13,9 @@ class CustomerFactory implements CustomerFactoryInterface
         string $goal,
         int $age,
         string $idealPartner,
-        string $favouriteQuote,
-        string $favouriteGame,
-        string $availability
+        ?string $favouriteQuote,
+        ?string $favouriteGame,
+        ?string $availability
     ): CustomerInterface
     {
         return Customer::make(

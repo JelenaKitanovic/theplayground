@@ -1,14 +1,12 @@
 <?php
 
-
-namespace App\Factory;
-
+namespace App\Service;
 
 use App\Models\CustomerInterface;
 
-interface CustomerFactoryInterface
+interface CustomerServiceInterface
 {
-    public function create(
+    public function addCustomer(
         string $fullName,
         string $email,
         string $goal,
