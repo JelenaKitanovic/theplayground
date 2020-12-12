@@ -2,18 +2,20 @@
 
 namespace App\Factory;
 
-use App\Models\Customer;
+use App\Models\CustomerInterface;
 use App\Models\CustomerStrength;
-use App\Models\Strength;
+use App\Models\CustomerStrengthInterface;
+use App\Models\StrengthInterface;
 
-class CustomerStrengthFactory
+class CustomerStrengthFactory implements CustomerStrengthFactoryInterface
 {
-    public function create(Customer $customer, Strength $strength): CustomerStrength
+    public function create(CustomerInterface $customer, StrengthInterface $strength): CustomerStrengthInterface
     {
-        $customerStrength = CustomerStrength::make();
-        $customerStrength->customer_id = $customer->getAttribute(Customer::ATTRIBUTE_ID);
-        $customerStrength->strength_id = $strength->getAttribute(Strength::ATTRIBUTE_ID);
-
-        return $customerStrength;
+        return CustomerStrength::make(
+            [
+                CustomerStrength::ATTRIBUTE_CUSTOMER_ID => $customer->id,
+                CustomerStrength::ATTRIBUTE_STRENGTH_ID => $strength->id
+            ]
+        );
     }
 }

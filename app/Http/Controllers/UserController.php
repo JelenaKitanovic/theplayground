@@ -6,21 +6,16 @@ use App\Repository\CustomerRepositoryInterface;
 
 class UserController extends Controller
 {
-    private $userRepositoryInterface;
+    private CustomerRepositoryInterface $userRepositoryInterface;
 
     public function __construct(CustomerRepositoryInterface $userRepositoryInterface)
     {
         $this->userRepositoryInterface = $userRepositoryInterface;
     }
 
-    public function index()
-    {
-    }
-
-    public function view(int $id)
+    public function show(int $id)
     {
         var_dump($this->userRepositoryInterface->getById($id));
-        die;
-        return view("users.details", ["id" => $id]);
+//        return view("users.details", ["id" => $id]);
     }
 }

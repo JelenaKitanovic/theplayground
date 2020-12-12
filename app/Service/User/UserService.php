@@ -3,10 +3,10 @@
 namespace App\Service;
 
 use App\Factory\UserFactoryInterface;
-use App\Models\User;
+use App\Models\UserInterface;
 use App\Repository\CustomerRepositoryInterface;
 
-class UserService
+class UserService implements UserServiceInterface
 {
     protected CustomerRepositoryInterface $userRepository;
     protected UserFactoryInterface $userFactory;
@@ -23,7 +23,7 @@ class UserService
         string $name,
         string $email,
         string $password
-    ): User {
+    ): UserInterface {
         $user = $this->userFactory->create($name, $email, $password);
         $this->userRepository->save($user);
 

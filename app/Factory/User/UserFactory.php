@@ -3,6 +3,7 @@
 namespace App\Factory;
 
 use App\Models\User;
+use App\Models\UserInterface;
 
 class UserFactory implements UserFactoryInterface
 {
@@ -10,7 +11,7 @@ class UserFactory implements UserFactoryInterface
         string $name,
         string $email,
         string $password
-    ): User {
+    ): UserInterface {
         return User::make(
             [
                 User::ATTRIBUTE_NAME => $name,

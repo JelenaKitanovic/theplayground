@@ -19,11 +19,13 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = $this->customerRepository->getAll();
-        return view('customer.dashboard', ['customers' => $customers]);
+        var_dump($customers);
+//        return view('customer.dashboard', ['customers' => $customers]);
     }
 
     public function show(Customer $customer)
     {
-        return view('customer.profile', ['customer' => $customer]);
+        var_dump($customer);
+//        return view('customer.profile', ['customer' => $customer]);
     }
 }

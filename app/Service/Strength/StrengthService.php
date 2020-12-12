@@ -3,28 +3,24 @@
 namespace App\Service;
 
 use App\Factory\StrengthFactoryInterface;
-use App\Models\Strength;
+use App\Models\StrengthInterface;
 use App\Repository\StrengthRepositoryInterface;
-use App\Repository\CustomerStrengthRepositoryInterface;
 
 class StrengthService
 {
     protected StrengthRepositoryInterface $strengthRepository;
-    protected CustomerStrengthRepositoryInterface $customerStrengthRepository;
     protected StrengthFactoryInterface $strengthFactory;
 
     public function __construct(
         StrengthRepositoryInterface $strengthRepository,
-        CustomerStrengthRepositoryInterface $customerStrengthRepository,
         StrengthFactoryInterface $strengthFactory
     )
     {
         $this->strengthRepository = $strengthRepository;
-        $this->customerStrengthRepository = $customerStrengthRepository;
         $this->strengthFactory = $strengthFactory;
     }
 
-    public function addStrength(string $title): Strength
+    public function addStrength(string $title): StrengthInterface
     {
         $strength = $this->strengthFactory->create($title);
         $this->strengthRepository->save($strength);

@@ -3,10 +3,11 @@
 namespace App\Factory;
 
 use App\Models\Strength;
+use App\Models\StrengthInterface;
 
 class StrengthFactory implements StrengthFactoryInterface
 {
-    public function create(string $title): Strength
+    public function create(string $title): StrengthInterface
     {
         return Strength::make(
             [

@@ -1,10 +1,7 @@
 <?php
 
-
 namespace App\Repository;
 
-
-use App\Models\CustomerStrength;
 use App\Models\Strength;
 use Illuminate\Database\Eloquent\Collection;
 

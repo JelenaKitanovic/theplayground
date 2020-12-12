@@ -6,15 +6,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CsvImportRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return true;
-    }
+    public const FILE_TYPE_CSV = "csv_file";
 
     public function rules()
     {
         return [
-            'csv_file' => 'required|file'
+            self::FILE_TYPE_CSV => "required|file"
         ];
     }
 }
