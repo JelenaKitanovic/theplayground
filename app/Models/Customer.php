@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model implements CustomerInterface
 {
+    use HasFactory;
+
     public const VALIDATION_RULES = [
         "full_name" => ["required"],
         "goal" => ["in:"],

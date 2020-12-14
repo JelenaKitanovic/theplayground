@@ -17,9 +17,9 @@ class EloquentCustomerStrengthRepository implements CustomerStrengthRepositoryIn
         return Strength::findOrFail();
     }
 
-    public function getAll(): Collection
+    public function getAll(): array
     {
-        return Strength::all();
+        return Strength::all()->toArray();
     }
 
     public function delete($strength): void

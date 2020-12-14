@@ -18,9 +18,9 @@ class EloquentStrengthRepository implements StrengthRepositoryInterface
         return Strength::where(StrengthInterface::ATTRIBUTE_TITLE, $title)->firstOrfail();
     }
 
-    public function getAll(): Collection
+    public function getAll(): array
     {
-        return Strength::all();
+        return Strength::all()->toArray();
     }
 
     public function countAll(): int

@@ -12,9 +12,9 @@ class EloquentUserRepository implements UserRepositoryInterface
         return User::findOrFail($id);
     }
 
-    public function getAll(): Collection
+    public function getAll(): array
     {
-        return User::all();
+        return User::all()->toArray();
     }
 
     public function save($user): void

@@ -15,10 +15,10 @@ class CreateCustomerStrengthTable extends Migration
     {
         Schema::create('customer_strength', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('customer_id');
-            $table->foreign('customer_id')->references('id')->on('customer');
-            $table->bigIncrements('strength_id');
-            $table->foreign('strength_id')->references('id')->on('strength');
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->unsignedBigInteger('strength_id');
+            $table->foreign('strength_id')->references('id')->on('strengths');
             $table->timestamps();
         });
     }
