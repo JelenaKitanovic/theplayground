@@ -30,4 +30,22 @@ interface CustomerInterface
     ];
     public const IDEAL_PARTNER_EFFECTIVE = "more effective & into discipline";
     public const IDEAL_PARTNER_LAID_BACK = "more laid back & takes it slowly";
+
+//    public function getFullName();
+//    public function setFullName(string $fullName);
+//
+//    public function getEmail();
+//    public function setEmail(string $email);
+
+    public function getGoal();
+    public function setGoal(string $goal);
+
+    public function getAge();
+    public function setAge(int $age);
+
+    public function getIdealPartner();
+    public function setIdealPartner(string $idealPartner);
+
+    public function getStrengths();
+    public function setStrengths(array $strengths);
 }

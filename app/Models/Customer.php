@@ -17,6 +17,46 @@ class Customer extends Model implements CustomerInterface
 
     protected $guarded = [];
 
+    public function getGoal(): string
+    {
+        return $this->goal;
+    }
+
+    public function setGoal(string $goal): void
+    {
+        $this->goal = $goal;
+    }
+
+    public function getAge(): int
+    {
+        return $this->age;
+    }
+
+    public function setAge(int $age):void
+    {
+        $this->age = $age;
+    }
+
+    public function getIdealPartner(): string
+    {
+        return $this->ideal_partner;
+    }
+
+    public function setIdealPartner(string $idealPartner): void
+    {
+        $this->ideal_partner = $idealPartner;
+    }
+
+    public function getStrengths()
+    {
+        return $this->strengths();
+    }
+
+    public function setStrengths(array $strengths)
+    {
+        return $this->strengths()->attach($strengths);
+    }
+
     public function customerStrengths()
     {
         return $this->hasMany(CustomerStrength::class);
@@ -24,5 +64,6 @@ class Customer extends Model implements CustomerInterface
 
     public function strengths()
     {
-        return $this->belongsToMany(Strength::class, "customer_strength");
-    }}
+        return $this->belongsToMany(Strength::class);
+    }
+}
