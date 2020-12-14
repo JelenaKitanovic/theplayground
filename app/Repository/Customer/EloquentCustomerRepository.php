@@ -3,7 +3,6 @@
 namespace App\Repository;
 
 use App\Models\Customer;
-use Illuminate\Database\Eloquent\Collection;
 
 class EloquentCustomerRepository implements CustomerRepositoryInterface
 {
@@ -12,9 +11,9 @@ class EloquentCustomerRepository implements CustomerRepositoryInterface
         return Customer::findOrFail($id);
     }
 
-    public function getAll(): Collection
+    public function getAll(): array
     {
-        return Customer::all();
+        return Customer::all()->toArray();
     }
 
     public function save($customer): void
