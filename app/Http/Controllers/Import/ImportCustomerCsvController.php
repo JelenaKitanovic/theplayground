@@ -62,9 +62,9 @@ class ImportCustomerCsvController extends ImportCsvController
                 $row[self::CSV_COLUMNS_MAPPING[CustomerInterface::ATTRIBUTE_GOAL]],
                 $age,
                 $row[self::CSV_COLUMNS_MAPPING[CustomerInterface::ATTRIBUTE_IDEAL_PARTNER]],
-                $row[self::CSV_COLUMNS_MAPPING[CustomerInterface::ATTRIBUTE_FAVOURITE_QUOTE]] ?? null,
-                $row[self::CSV_COLUMNS_MAPPING[CustomerInterface::ATTRIBUTE_FAVOURITE_GAME]] ?? null,
-                $row[self::CSV_COLUMNS_MAPPING[CustomerInterface::ATTRIBUTE_AVAILABILITY]] ?? null
+                utf8_encode($row[self::CSV_COLUMNS_MAPPING[CustomerInterface::ATTRIBUTE_FAVOURITE_QUOTE]]) ?? null,
+                utf8_encode($row[self::CSV_COLUMNS_MAPPING[CustomerInterface::ATTRIBUTE_FAVOURITE_GAME]]) ?? null,
+                utf8_encode($row[self::CSV_COLUMNS_MAPPING[CustomerInterface::ATTRIBUTE_AVAILABILITY]]) ?? null
             );
 
             $strengths = $this->getStrengthsFromCsvRow($row);
