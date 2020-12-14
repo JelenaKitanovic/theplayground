@@ -47,14 +47,14 @@ class Customer extends Model implements CustomerInterface
         $this->ideal_partner = $idealPartner;
     }
 
-    public function getStrengths()
+    public function getStrengths(): array
     {
-        return $this->strengths();
+        return $this->strengths;
     }
 
-    public function setStrengths(array $strengths)
+    public function setStrengths(array $strengths): void
     {
-        return $this->strengths()->attach($strengths);
+        $this->strengths = $strengths;
     }
 
     public function customerStrengths()

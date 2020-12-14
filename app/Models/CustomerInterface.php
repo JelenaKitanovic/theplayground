@@ -37,15 +37,15 @@ interface CustomerInterface
 //    public function getEmail();
 //    public function setEmail(string $email);
 
-    public function getGoal();
+    public function getGoal(): string;
     public function setGoal(string $goal);
 
-    public function getAge();
+    public function getAge(): int;
     public function setAge(int $age);
 
-    public function getIdealPartner();
+    public function getIdealPartner(): string;
     public function setIdealPartner(string $idealPartner);
 
-    public function getStrengths();
+    public function getStrengths(): array;
     public function setStrengths(array $strengths);
 }
