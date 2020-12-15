@@ -17,9 +17,6 @@ Napravicu tu i neki basic CRUD dashboard vrv.
 
 Oni za sada nemaju domen i hosting, ali ga kupuju uskoro tako da cu moci ovo da joj podignem lepo, i onda treba da napravim neku bazicnu autentifikaciju da ne moze bas svako da pristupa tim podacima. (sto sam sad pocela sa Laravel Breeze)
 
-E sad, svi ovi customeri koje ona dobija u csv-u, nisu dosli preko njenog sajta  i to, pa zato oni nemaju sifre ni nista, i zato sam odlucila da ih odvojim u poseban entitet.
-Kao user da je nesto usko vezano samo za email password i to, a ovi detalji o tim ljudima da idu u entitet customer (takodje mi je malo bezveze da sve bude u jednoj tabeli npr user, da on sadrzi i password i remember_token i your ideal partner ili favourite quote :)).
-
 Ja cu sad konstantno da radim na ovome, da vezbam laravel i da se trudim da se drzim dobrih praksi i da primenim dizajn patterne, tako da ti kad stignes baci pogled pa javi ili mozemo da se cujemo da prokomentarisemo :)
 
 U principu sve mi je otvoreno, mogu da dodajem sta god hocu i kako god hocu na projekat tako da mi je bas super za ucenje :)
