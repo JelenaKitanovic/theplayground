@@ -2,19 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model implements CustomerInterface
 {
-    use HasFactory;
-
-    public const VALIDATION_RULES = [
-        "full_name" => ["required"],
-        "goal" => ["in:"],
-        "age" => ["required", "integer"]
-    ];
-
     protected $guarded = [];
 
     public function getGoal(): string
@@ -49,12 +40,7 @@ class Customer extends Model implements CustomerInterface
 
     public function getStrengths(): array
     {
-        return $this->strengths;
-    }
-
-    public function setStrengths(array $strengths): void
-    {
-        $this->strengths = $strengths;
+        return $this->strengths->all();
     }
 
     public function customerStrengths()

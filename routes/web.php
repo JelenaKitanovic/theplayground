@@ -33,7 +33,7 @@ Route::get('/customers', [CustomerController::class, 'index'])
 Route::get('/customers/{customer}', [CustomerController::class, 'show'])
     ->middleware(['auth']);
 
-Route::get('/', [ImportCustomerCsvController::class, 'getImport'])
+Route::get('/import_csv', [ImportCustomerCsvController::class, 'getImport'])
     ->middleware(['auth'])
     ->name('import');
 Route::post('/import_parse', [ImportCustomerCsvController::class, 'parseImport'])

@@ -69,6 +69,7 @@ class ImportCustomerCsvController extends ImportCsvController
 
             $strengths = $this->getStrengthsFromCsvRow($row);
             $this->customerStrengthService->addCustomerStrengthsForCustomer($customer, $strengths);
+
         }
 
         return view("dashboard");

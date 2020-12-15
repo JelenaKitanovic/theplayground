@@ -21,7 +21,35 @@ class StrengthController extends Controller
 
     public function index()
     {
-        $strengths = $this->strengthRepository->getAll();
-        var_dump($strengths);
+        $strengths = [
+            'Appreciation of beauty and excellence',
+            'Bravery',
+            'Creativity',
+            'Curiosity',
+            'Fairness',
+            'Forgiveness',
+            'Gratitude',
+            'Honesty',
+            'Hope',
+            'Humility',
+            'Humor',
+            'Judgment',
+            'Kindness',
+            'Leadership',
+            'Love',
+            'Love of learning',
+            'Perseverance',
+            'Perspective',
+            'Prudence',
+            'Self regulation',
+            'Social intelligence',
+            'Spirituality',
+            'Teamwork',
+            'Zest'
+        ];
+
+        foreach ($strengths as $strength) {
+            $this->strengthService->addStrength(strtolower($strength));
+        }
     }
 }

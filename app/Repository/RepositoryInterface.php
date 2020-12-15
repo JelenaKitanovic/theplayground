@@ -6,7 +6,7 @@ interface RepositoryInterface
 {
     public function getById(int $id);
 
-    public function getAll();
+//    public function getAll();
 
     public function save($entity): void;
 

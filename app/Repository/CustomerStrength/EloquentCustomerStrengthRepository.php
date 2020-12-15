@@ -2,8 +2,7 @@
 
 namespace App\Repository;
 
-use App\Models\Strength;
-use Illuminate\Database\Eloquent\Collection;
+use App\Models\CustomerStrength;
 
 class EloquentCustomerStrengthRepository implements CustomerStrengthRepositoryInterface
 {
@@ -12,14 +11,14 @@ class EloquentCustomerStrengthRepository implements CustomerStrengthRepositoryIn
         $customerStrength->save();
     }
 
-    public function getById(int $id): Strength
+    public function getById(int $id): ?CustomerStrength
     {
-        return Strength::findOrFail();
+        return CustomerStrength::findOrFail();
     }
 
     public function getAll(): array
     {
-        return Strength::all()->toArray();
+        return CustomerStrength::all()->toArray();
     }
 
     public function delete($strength): void

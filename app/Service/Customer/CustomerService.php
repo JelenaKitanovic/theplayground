@@ -1,11 +1,9 @@
 <?php
 
-
 namespace App\Service;
 
-
 use App\Factory\CustomerFactoryInterface;
-use App\Models\Customer;
+use App\Models\CustomerInterface;
 use App\Repository\CustomerRepositoryInterface;
 
 class CustomerService implements CustomerServiceInterface
@@ -31,7 +29,7 @@ class CustomerService implements CustomerServiceInterface
         ?string $favouriteQuote,
         ?string $favouriteGame,
         ?string $availability
-    ): Customer
+    ): CustomerInterface
     {
         $customer = $this->customerFactory->create(
             $fullName,

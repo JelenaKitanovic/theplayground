@@ -3,17 +3,18 @@
 namespace App\Repository;
 
 use App\Models\Customer;
+use Illuminate\Database\Eloquent\Collection;
 
 class EloquentCustomerRepository implements CustomerRepositoryInterface
 {
-    public function getById(int $id): Customer
+    public function getById(int $id): ?Customer
     {
         return Customer::findOrFail($id);
     }
 
     public function getAll(): array
     {
-        return Customer::all()->toArray();
+        return Customer::all()->all();
     }
 
     public function save($customer): void

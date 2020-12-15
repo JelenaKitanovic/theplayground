@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Factory\StrengthFactoryInterface;
+use App\Models\CustomerInterface;
 use App\Models\StrengthInterface;
 use App\Repository\StrengthRepositoryInterface;
 
@@ -26,5 +27,19 @@ class StrengthService
         $this->strengthRepository->save($strength);
 
         return $strength;
+    }
+
+    /**
+     * @param CustomerInterface $customer
+     * @return array
+     */
+    public function getStrengthsTitlesForCustomer(CustomerInterface $customer): array
+    {
+        $strengthTitles = [];
+        foreach ($customer->getStrengths() as $strength) {
+            $strengthTitles[] = $strength->getTitle();
+        }
+
+        return $strengthTitles;
     }
 }

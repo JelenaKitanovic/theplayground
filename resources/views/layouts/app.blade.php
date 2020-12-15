@@ -23,16 +23,14 @@
 <!-- Page Heading -->
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            {{ 'Header' }}
+            @yield('header')
         </div>
     </header>
 
     <!-- Page Content -->
-    @section('page-content')
         <main>
-            @show
+            @yield('content')
         </main>
-
 </div>
 </body>
 </html>

@@ -47,5 +47,4 @@ interface CustomerInterface
     public function setIdealPartner(string $idealPartner);
 
     public function getStrengths(): array;
-    public function setStrengths(array $strengths);
 }

@@ -3,16 +3,15 @@
 namespace App\Repository;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Collection;
 
 class EloquentUserRepository implements UserRepositoryInterface
 {
-    public function getById(int $id): User
+    public function getById(int $id): ?User
     {
         return User::findOrFail($id);
     }
 
-    public function getAll(): array
+    public function getAllWithRelations(): array
     {
         return User::all()->toArray();
     }

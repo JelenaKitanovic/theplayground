@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use App\Models\Customer;
 use App\Models\Strength;
-use App\Service\BasicMatchingAlgorithmServiceService;
+use App\Service\BasicMatchingAlgorithmService;
 use Tests\TestCase;
 
 class BasicMatchingAlgorithmServiceTest extends TestCase
@@ -15,12 +15,12 @@ class BasicMatchingAlgorithmServiceTest extends TestCase
     protected const MATCHING_SCORE_30 = 30;
     protected const MATCHING_SCORE_75 = 75;
 
-    protected BasicMatchingAlgorithmServiceService $basicMatchingAlgorithmService;
+    protected BasicMatchingAlgorithmService $basicMatchingAlgorithmService;
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->basicMatchingAlgorithmService = new BasicMatchingAlgorithmServiceService();
+        $this->basicMatchingAlgorithmService = new BasicMatchingAlgorithmService();
     }
 
     /**

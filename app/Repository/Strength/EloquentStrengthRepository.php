@@ -3,19 +3,17 @@
 namespace App\Repository;
 
 use App\Models\Strength;
-use App\Models\StrengthInterface;
-use Illuminate\Database\Eloquent\Collection;
 
 class EloquentStrengthRepository implements StrengthRepositoryInterface
 {
-    public function getById(int $id): Strength
+    public function getById(int $id): ?Strength
     {
         return Strength::findOrFail($id);
     }
 
-    public function getByTitle(string $title): Strength
+    public function getByTitle(string $title): ?Strength
     {
-        return Strength::where(StrengthInterface::ATTRIBUTE_TITLE, $title)->firstOrfail();
+        return Strength::where(Strength::ATTRIBUTE_TITLE, $title)->firstOrfail();
     }
 
     public function getAll(): array
