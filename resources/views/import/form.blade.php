@@ -5,9 +5,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">CSV Import</div>
-
                     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+                        <div class="border-4 p-10">
                         <form class="form-horizontal" method="POST" action="{{ route('import_parse') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
@@ -43,6 +42,7 @@
                                 </div>
                             </div>
                         </form>
+                        </div>
                     </div>
                 </div>
             </div>

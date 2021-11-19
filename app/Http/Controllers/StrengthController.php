@@ -7,8 +7,14 @@ use App\Service\StrengthService;
 
 class StrengthController extends Controller
 {
-    private StrengthRepositoryInterface $strengthRepository;
-    private StrengthService $strengthService;
+    /**
+     * @var StrengthRepositoryInterface
+     */
+    private $strengthRepository;
+    /**
+     * @var StrengthService
+     */
+    private $strengthService;
 
     public function __construct(
         StrengthRepositoryInterface $strengthRepository,

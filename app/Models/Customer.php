@@ -8,6 +8,11 @@ class Customer extends Model implements CustomerInterface
 {
     protected $guarded = [];
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function getGoal(): string
     {
         return $this->goal;

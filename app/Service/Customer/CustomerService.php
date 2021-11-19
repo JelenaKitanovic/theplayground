@@ -8,8 +8,10 @@ use App\Repository\CustomerRepositoryInterface;
 
 class CustomerService implements CustomerServiceInterface
 {
-    protected CustomerFactoryInterface $customerFactory;
-    protected CustomerRepositoryInterface $customerRepository;
+    /** @var CustomerFactoryInterface  */
+    protected $customerFactory;
+    /** @var CustomerRepositoryInterface  */
+    protected $customerRepository;
 
     public function __construct(
         CustomerFactoryInterface $customerFactory,

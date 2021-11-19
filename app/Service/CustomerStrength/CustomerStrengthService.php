@@ -10,8 +10,10 @@ use App\Repository\CustomerStrengthRepositoryInterface;
 
 class CustomerStrengthService implements CustomerStrengthServiceInterface
 {
-    protected CustomerStrengthFactoryInterface $customerStrengthFactory;
-    protected CustomerStrengthRepositoryInterface $customerStrengthRepository;
+    /** @var CustomerStrengthFactoryInterface  */
+    protected $customerStrengthFactory;
+    /** @var CustomerStrengthRepositoryInterface  */
+    protected $customerStrengthRepository;
 
     public function __construct(
         CustomerStrengthRepositoryInterface $customerStrengthRepository,

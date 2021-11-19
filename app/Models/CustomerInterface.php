@@ -37,6 +37,8 @@ interface CustomerInterface
 //    public function getEmail();
 //    public function setEmail(string $email);
 
+    public function getId(): int;
+
     public function getGoal(): string;
     public function setGoal(string $goal);
 

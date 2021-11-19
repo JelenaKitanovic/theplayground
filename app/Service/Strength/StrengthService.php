@@ -9,8 +9,10 @@ use App\Repository\StrengthRepositoryInterface;
 
 class StrengthService
 {
-    protected StrengthRepositoryInterface $strengthRepository;
-    protected StrengthFactoryInterface $strengthFactory;
+    /** @var StrengthRepositoryInterface  */
+    protected $strengthRepository;
+    /** @var StrengthFactoryInterface  */
+    protected $strengthFactory;
 
     public function __construct(
         StrengthRepositoryInterface $strengthRepository,

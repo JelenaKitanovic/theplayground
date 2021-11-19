@@ -8,8 +8,10 @@ use App\Repository\CustomerRepositoryInterface;
 
 class UserService implements UserServiceInterface
 {
-    protected CustomerRepositoryInterface $userRepository;
-    protected UserFactoryInterface $userFactory;
+    /** @var CustomerRepositoryInterface  */
+    protected $userRepository;
+    /** @var UserFactoryInterface  */
+    protected $userFactory;
 
     public function __construct(
         CustomerRepositoryInterface $userRepositoryInterface,

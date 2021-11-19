@@ -4,44 +4,66 @@ namespace App\Service;
 
 use App\Models\CustomerInterface;
 
-class BasicMatchingAlgorithmService implements MatchingAlgorithmServiceInterface
+class BruteForceMatchingAlgorithmService implements MatchingAlgorithmServiceInterface
 {
     protected const MIN_NUMBER_OF_MATCHING_STRENGTHS = 2;
     protected const MAX_AGE_DIFFERENCE_IN_YEARS = 5;
 
-    protected const MATCHING_STRENGTHS_SCORE = 30;
-    protected const MATCHING_GOALS_SCORE = 25;
-    protected const MATCHING_IDEAL_PARTNERS_SCORE = 10;
-    protected const MATCHING_AGE_SCORE = 10;
+    protected const MATCHING_STRENGTHS_SCORE = 25;
+    protected const MATCHING_GOALS_SCORE = 45;
+    protected const MATCHING_IDEAL_PARTNERS_SCORE = 0;
+    protected const MATCHING_AGE_SCORE = 15;
     protected const MATCHING_SCORE_0 = 0;
 
-    public function calculateMatchingScore(CustomerInterface $customer1, CustomerInterface $customer2): int
+    public function calculateMatchingScore(CustomerInterface $customer1, CustomerInterface $customer2): array
     {
-        return
-            $this->calculateMatchingScoreForStrengths(
-                $customer1->getStrengths(),
-                $customer2->getStrengths()
-            )
-            + $this->calculateMatchingScoreForGoals(
-                $customer1->getGoal(),
-                $customer2->getGoal()
-            )
-            + $this->calculateMatchingScoreForIdealPartner(
-                $customer1->getIdealPartner(),
-                $customer2->getIdealPartner()
-            )
-            + $this->calculateMatchingScoreForAge(
-                $customer1->getAge(),
-                $customer2->getAge()
-            );
+        $data = ["score" => 0];
+        $data["strengths"] = false;
+        if($this->calculateMatchingScoreForStrengths($customer1->getStrengths(), $customer2->getStrengths()) > 0){
+           $data["score"] +=  $this->calculateMatchingScoreForStrengths($customer1->getStrengths(), $customer2->getStrengths());
+           $data["strengths"] = true;
+        }
+
+        $data["goal"] = false;
+        if($this->calculateMatchingScoreForGoals($customer1->getGoal(), $customer2->getGoal()) > 0){
+            $data["score"] +=  $this->calculateMatchingScoreForGoals($customer1->getGoal(), $customer2->getGoal());
+            $data["goal"] = true;
+        }
+
+        $data["idealPartner"] = false;
+        if($this->calculateMatchingScoreForIdealPartner($customer1->getIdealPartner(), $customer2->getIdealPartner()) > 0){
+            $data["score"] +=  $this->calculateMatchingScoreForIdealPartner($customer1->getIdealPartner(), $customer2->getIdealPartner());
+            $data["idealPartner"] = true;
+        }
+
+        $data["age"] = false;
+        if($this->calculateMatchingScoreForAge($customer1->getAge(), $customer2->getAge()) > 0){
+            $data["score"] +=  $this->calculateMatchingScoreForAge($customer1->getAge(), $customer2->getAge());
+            $data["age"] = true;
+        }
+
+        return $data;
     }
 
     private function calculateMatchingScoreForStrengths(array $strengths1, array $strengths2): int
     {
         $matchingStrengths = array_intersect($strengths1, $strengths2);
-        return count($matchingStrengths) >= self::MIN_NUMBER_OF_MATCHING_STRENGTHS
-                ? self::MATCHING_STRENGTHS_SCORE
-                : self::MATCHING_SCORE_0;
+        $matchingStrengthsCount = count($matchingStrengths);
+        switch ($matchingStrengthsCount) {
+            case 1:
+                return 10;
+            case 2:
+                return 20;
+            case 3:
+                return 30;
+            case 4:
+                return 40;
+            default:
+                return 0;
+        }
+//        return count($matchingStrengths) >= self::MIN_NUMBER_OF_MATCHING_STRENGTHS
+//                ? self::MATCHING_STRENGTHS_SCORE
+//                : self::MATCHING_SCORE_0;
     }
 
     private function calculateMatchingScoreForGoals(string $goal1, string $goal2): int

@@ -1,7 +1,4 @@
 @extends('layouts.app')
-@section('header')
-    <h1>Customers</h1>
-@endsection
 @section('content')
     <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
 {{--        <div--}}
@@ -111,10 +108,12 @@
                                     </span>
                         </td>
                         <td class="px-3 py-3 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
+                            <a class="" href="{{ route('show_customer', $customer["id"]) }}">
                             <button
                                 class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
                                 View Details
                             </button>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

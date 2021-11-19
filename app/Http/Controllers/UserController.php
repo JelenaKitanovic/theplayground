@@ -6,7 +6,10 @@ use App\Repository\CustomerRepositoryInterface;
 
 class UserController extends Controller
 {
-    private CustomerRepositoryInterface $userRepositoryInterface;
+    /**
+     * @var CustomerRepositoryInterface
+     */
+    private $userRepositoryInterface;
 
     public function __construct(CustomerRepositoryInterface $userRepositoryInterface)
     {

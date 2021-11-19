@@ -6,5 +6,5 @@ use App\Models\CustomerInterface;
 
 interface MatchingAlgorithmServiceInterface
 {
-    public function calculateMatchingScore(CustomerInterface $customer1, CustomerInterface $customer2): int;
+    public function calculateMatchingScore(CustomerInterface $customer1, CustomerInterface $customer2): array;
 }

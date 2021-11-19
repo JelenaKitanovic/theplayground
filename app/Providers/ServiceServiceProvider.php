@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Service\BruteForceMatchingAlgorithmService;
 use App\Service\CustomerService;
 use App\Service\CustomerServiceInterface;
 use App\Service\CustomerStrengthService;
 use App\Service\CustomerStrengthServiceInterface;
+use App\Service\MatchingAlgorithmServiceInterface;
 use App\Service\UserService;
 use App\Service\UserServiceInterface;
 use Illuminate\Support\ServiceProvider;
@@ -31,6 +33,7 @@ class ServiceServiceProvider extends ServiceProvider
     {
         $this->app->bind(CustomerServiceInterface::class, CustomerService::class);
         $this->app->bind(CustomerStrengthServiceInterface::class, CustomerStrengthService::class);
+        $this->app->bind(MatchingAlgorithmServiceInterface::class, BruteForceMatchingAlgorithmService::class);
         $this->app->bind(UserServiceInterface::class, UserService::class);
     }
 }
